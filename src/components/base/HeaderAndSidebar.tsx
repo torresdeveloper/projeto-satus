@@ -4,7 +4,7 @@ import { BaseMobileHeader } from "./BaseMobileHeader";
 import { BaseSidebar } from "./BaseSidebar";
 import { useComponentDidMount } from "@/hooks/useComponentDidMount";
 
-export const HeaderAndSidebar = ({ menu = "Home" }: { menu: string }) => {
+export const HeaderAndSidebar = ({ menu }: { menu: string }) => {
   const [mobileOpened, setMobileOpened] = useState(false);
 
   useComponentDidMount(() => {

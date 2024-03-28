@@ -1,5 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
+"use client";
+
+import { useComponentDidMount } from "@/hooks/useComponentDidMount";
 import type { SecondarySidebarItem } from "./base.types";
+import { useState } from "react";
+import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
 
 export const SecondarySidebar = ({
   items,
@@ -8,10 +14,35 @@ export const SecondarySidebar = ({
   items: SecondarySidebarItem[];
   title?: string;
 }) => {
+  const [currentItemIndex, setCurrentItemIndex] = useState(-1);
+
+  useComponentDidMount(() => {
+    const uri = window.location.pathname;
+    const index = items.findIndex((item) => item.href === uri);
+    setCurrentItemIndex(index);
+  });
+
   return (
     <div className="secondary-sidebar xl:h-screen p-2 hidden xl:inline-flex sticky z-40 top-0 -ml-4 translate-x-0">
       <div className="backdrop"></div>
-      <div className="relative flex w-full">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {
+            marginLeft: "-100%",
+            opacity: 0,
+          },
+          visible: {
+            marginLeft: 0,
+            opacity: 1,
+            transition: {
+              delay: 0.15,
+            },
+          },
+        }}
+        className="relative flex w-full"
+      >
         <div className="absolute inset-0 xl:bg-1 dark:opacity-0 duration-300"></div>
         <div className="absolute inset-0 bg-gray-14 opacity-0 dark:opacity-100 duration-300"></div>
         <div className="inner relative border border-l-0 border-orange-2 dark:border-gray-10 w-full w-80 rounded-r px-7 py-6 overflow-auto hide-scrollbar duration-300">
@@ -75,7 +106,10 @@ export const SecondarySidebar = ({
               return (
                 <article
                   key={index}
-                  className="post tag-hash-newsletter tag-gemini no-image post-access-public  p-2 relative rounded duration-300 hover:bg-orange-3 hover:bg-opacity-40 dark:hover:bg-gray-11 dark:hover:bg-opacity-40"
+                  className={twMerge(
+                    "post tag-hash-newsletter tag-gemini no-image post-access-public  p-2 relative rounded duration-300 hover:bg-orange-3 hover:bg-opacity-40 dark:hover:bg-gray-11 dark:hover:bg-opacity-40",
+                    currentItemIndex === index && "active"
+                  )}
                 >
                   <h3 className="text-sm leading-lh-2 mb-1 text-gray-1 dark:text-gray-15 duration-300">
                     {item.title}
@@ -1977,7 +2011,7 @@ export const SecondarySidebar = ({
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

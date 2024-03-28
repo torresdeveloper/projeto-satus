@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import "@/styles/cards.css";
 import { twMerge } from "tailwind-merge";
-import Head from "next/head";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -20,18 +19,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Roboto+Mono:wght@500&amp;family=Nanum+Pen+Script&amp;display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <body
         className={twMerge(
           // inter.className,
@@ -39,10 +26,6 @@ export default function RootLayout({
         )}
       >
         {children}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Roboto+Mono:wght@500&amp;family=Nanum+Pen+Script&amp;display=swap"
-          rel="stylesheet"
-        ></link>
       </body>
     </html>
   );

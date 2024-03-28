@@ -1,6 +1,8 @@
 import { onNextClick } from "@/helpers/onNextClick";
 import { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export const BaseSidebar = ({
   menu,
@@ -38,7 +40,24 @@ export const BaseSidebar = ({
         mobileOpened ? "translate-x-0" : "-translate-x-full"
       )}
     >
-      <div className="relative flex">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {
+            marginLeft: "-100%",
+            opacity: 0,
+          },
+          visible: {
+            marginLeft: 0,
+            opacity: 1,
+            transition: {
+              delay: 0.1,
+            },
+          },
+        }}
+        className="relative flex"
+      >
         {mobileOpened && (
           <button
             type="button"
@@ -92,8 +111,13 @@ export const BaseSidebar = ({
           </div>
           <SearchForInput />
           <nav className="mt-4 mb-12">
-            <div className="kg-card kg-product-card active">
-              <div className="kg-product-card-container">
+            <div
+              className={twMerge(
+                "kg-card kg-product-card",
+                menu === "Início" && "active"
+              )}
+            >
+              <Link href="/" className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2023/08/Frame.svg"
                   width="18"
@@ -109,16 +133,21 @@ export const BaseSidebar = ({
 
                 <div className="kg-product-card-description"></div>
 
-                <a
+                {/* <a
                   href="https://www.jeffsu.org/"
                   className="kg-product-card-button kg-product-card-btn-accent"
                 >
                   <span>Início</span>
-                </a>
-              </div>
+                </a> */}
+              </Link>
             </div>
-            <div className="kg-card kg-product-card">
-              <div className="kg-product-card-container">
+            <div
+              className={twMerge(
+                "kg-card kg-product-card",
+                menu === "Newsletter" && "active"
+              )}
+            >
+              <Link href="/newsletter" className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2023/08/Frame-1.svg"
                   width="16"
@@ -134,16 +163,21 @@ export const BaseSidebar = ({
 
                 <div className="kg-product-card-description"></div>
 
-                <a
+                {/* <a
                   href="https://www.jeffsu.org/newsletter/"
                   className="kg-product-card-button kg-product-card-btn-accent"
                 >
                   <span>Newsletter</span>
-                </a>
-              </div>
+                </a> */}
+              </Link>
             </div>
-            <div className="kg-card kg-product-card">
-              <div className="kg-product-card-container">
+            <div
+              className={twMerge(
+                "kg-card kg-product-card",
+                menu === "Nossa Equipe" && "active"
+              )}
+            >
+              <Link href="/equipe" className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2024/03/Frame--60-.svg"
                   width="16"
@@ -159,17 +193,25 @@ export const BaseSidebar = ({
 
                 <div className="kg-product-card-description"></div>
 
-                <a
+                {/* <a
                   href="https://www.jeffsu.org/the-debrief/"
                   className="kg-product-card-button kg-product-card-btn-accent"
                 >
                   <span>Nossa Equipe</span>
-                </a>
-              </div>
+                </a> */}
+              </Link>
             </div>
-            <h3 id="articles">Articles</h3>
-            <div className="kg-card kg-product-card">
-              <div className="kg-product-card-container">
+            <h3 id="articles">Artigos</h3>
+            <div
+              className={twMerge(
+                "kg-card kg-product-card",
+                menu === "Inteligência Artificial" && "active"
+              )}
+            >
+              <Link
+                href="inteligencia-artificial"
+                className="kg-product-card-container"
+              >
                 <img
                   src="https://www.jeffsu.org/content/images/2024/03/Frame--59-.svg"
                   width="16"
@@ -187,15 +229,20 @@ export const BaseSidebar = ({
 
                 <div className="kg-product-card-description"></div>
 
-                <a
+                {/* <a
                   href="https://www.jeffsu.org/Inteligência Artificial/"
                   className="kg-product-card-button kg-product-card-btn-accent"
                 >
                   <span>Inteligência Artificial</span>
-                </a>
-              </div>
+                </a> */}
+              </Link>
             </div>
-            <div className="kg-card kg-product-card">
+            <div
+              className={twMerge(
+                "kg-card kg-product-card",
+                menu === "Front-end" && "active"
+              )}
+            >
               <div className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2024/03/Frame-3--1-.svg"
@@ -212,15 +259,20 @@ export const BaseSidebar = ({
 
                 <div className="kg-product-card-description"></div>
 
-                <a
+                <Link
                   href="https://www.jeffsu.org/Front-end/"
                   className="kg-product-card-button kg-product-card-btn-accent"
                 >
                   <span>Front-end</span>
-                </a>
+                </Link>
               </div>
             </div>
-            <div className="kg-card kg-product-card">
+            <div
+              className={twMerge(
+                "kg-card kg-product-card",
+                menu === "Back-end" && "active"
+              )}
+            >
               <div className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2023/08/Frame-5.svg"
@@ -237,15 +289,20 @@ export const BaseSidebar = ({
 
                 <div className="kg-product-card-description"></div>
 
-                <a
+                <Link
                   href="https://www.jeffsu.org/Back-end/"
                   className="kg-product-card-button kg-product-card-btn-accent"
                 >
                   <span>Back-end</span>
-                </a>
+                </Link>
               </div>
             </div>
-            <div className="kg-card kg-product-card">
+            <div
+              className={twMerge(
+                "kg-card kg-product-card",
+                menu === "Full-Stack" && "active"
+              )}
+            >
               <div className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2023/08/Frame-4.svg"
@@ -262,17 +319,20 @@ export const BaseSidebar = ({
 
                 <div className="kg-product-card-description"></div>
 
-                <a
+                <Link
                   href="https://www.jeffsu.org/Full-Stack/"
                   className="kg-product-card-button kg-product-card-btn-accent"
                 >
                   <span>Full-Stack</span>
-                </a>
+                </Link>
               </div>
             </div>
             {/*
             <h3 id="resources">Resources</h3>
-            <div className="kg-card kg-product-card">
+            <div className={twMerge(
+                "kg-card kg-product-card",
+                menu === "Início" && "active"
+              )}>
               <div className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2024/03/Frame--64-.svg"
@@ -297,7 +357,10 @@ export const BaseSidebar = ({
                 </a>
               </div>
             </div>
-            <div className="kg-card kg-product-card">
+            <div className={twMerge(
+                "kg-card kg-product-card",
+                menu === "Início" && "active"
+              )}>
               <div className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2024/03/Frame--65-.svg"
@@ -338,7 +401,7 @@ export const BaseSidebar = ({
             <span></span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
