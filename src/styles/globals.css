@@ -3900,11 +3900,11 @@ label.error {
 }
 
 .total-members-container span::before {
-  content: "Join ";
+  content: "Junte-se à ";
 }
 
 .total-members-container span::after {
-  content: " readers.";
+  content: " membros.";
 }
 
 .home-template .prose h1,

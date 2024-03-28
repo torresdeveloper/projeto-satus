@@ -201,7 +201,7 @@ export const BaseSidebar = ({
                 </a> */}
               </Link>
             </div>
-            <h3 id="articles">Artigos</h3>
+            <h3 id="articles">Conteúdo</h3>
             <div
               className={twMerge(
                 "kg-card kg-product-card",

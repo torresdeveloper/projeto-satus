@@ -3,4 +3,5 @@ export interface SecondarySidebarItem {
   title: string;
   date: string;
   category?: string;
+  active?: boolean;
 }

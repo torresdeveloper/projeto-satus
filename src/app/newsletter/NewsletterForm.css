@@ -1,0 +1,23 @@
+.NewsletterForm {
+  .gh-portal-input-labelcontainer {
+    line-height: 1;
+    margin-bottom: 0.1rem;
+  }
+  .gh-portal-input-section {
+    margin-bottom: 1rem;
+  }
+  .gh-portal-button-section {
+    @apply pt-2;
+  }
+  .gh-portal-input-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .gh-portal-input {
+    width: 100%;
+    max-width: 350px;
+    font-family: Roboto Mono;
+    font-weight: lighter;
+    font-size: 0.9rem;
+  }
+}

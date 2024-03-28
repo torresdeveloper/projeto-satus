@@ -6,6 +6,7 @@ import type { SecondarySidebarItem } from "./base.types";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export const SecondarySidebar = ({
   items,
@@ -122,7 +123,7 @@ export const SecondarySidebar = ({
                       </>
                     )}
                   </div>
-                  <a href={item.href} className="absolute inset-0"></a>
+                  <Link href={item.href} className="absolute inset-0"></Link>
                 </article>
               );
             })}

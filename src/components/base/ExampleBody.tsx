@@ -1,15 +1,21 @@
+import { PageTitle } from "./PageTitle";
+
 export const ExampleBody = () => {
   return (
     <>
-      <div className="flex text-gray-1 text-opacity-40 dark:text-gray-17 duration-300 mb-4 text-sm font-medium space-x-1.5">
-        <time dateTime="2023-08-08">08 Aug 2023</time>
-        <span>|</span>
-        <div>Workspace</div>
-        <span>|</span> <span>#110</span>
-      </div>
-      <h1 className="title text-3xl lg:text-4xl font-bold text-gray-1 dark:text-gray-15 mb-6 duration-300">
-        [Workspace] Send Personalized Bulk Email with Mail Merge!
-      </h1>
+      <PageTitle
+        title="[Workspace] Send Personalized Bulk Email with Mail Merge!"
+        headline={
+          <>
+            <time dateTime="2023-08-08">08 Aug 2023</time>
+            <span>|</span>
+            <div>Workspace</div>
+            <span>|</span>
+            <span>#110</span>
+          </>
+        }
+      />
+
       <div className="prose">
         <p>
           <em>
