@@ -36,10 +36,13 @@ export const BasePage = ({
         />
       </>
       <HeaderAndSidebar menu={menu} />
+      <div className="fixed top-0 left-0 right-0 bottom-0 z-[-1] after:absolute after:top-[-70px] after:left-[-20rem] after:-z-20 after:h-[75vh] after:w-full sm:after:w-full after:bg-gradient-radial after:from-[#FBF0D7] after:via-[#FBF0D7] after:opacity-30 after:blur-2xl after:content-[''] after:dark:from-[#6f3401] after:dark:via-[#bc6407] after:dark:opacity-10"></div>
       {showSecondaryItems && (
         <SecondarySidebar items={secondaryItems} title={secondaryTitle} />
       )}
-      <div className="mx-auto w-full px-6 mb-6 lg:mb-12 mt-24 lg:mt-20">
+      <div
+        className={twMerge("mx-auto w-full px-6 mb-6 lg:mb-12 mt-24 lg:mt-20")}
+      >
         <div className={twMerge(fullWidth ? "" : "max-w-max-w-2 mx-auto")}>
           {showSecondaryItems && (
             <MobileSecondarySidebar

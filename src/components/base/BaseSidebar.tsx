@@ -141,7 +141,7 @@ export const BaseSidebar = ({
                 </a> */}
               </Link>
             </div>
-            <div
+            {/* <div
               className={twMerge(
                 "kg-card kg-product-card",
                 menu === "Newsletter" && "active"
@@ -162,15 +162,8 @@ export const BaseSidebar = ({
                 </div>
 
                 <div className="kg-product-card-description"></div>
-
-                {/* <a
-                  href="https://www.jeffsu.org/newsletter/"
-                  className="kg-product-card-button kg-product-card-btn-accent"
-                >
-                  <span>Newsletter</span>
-                </a> */}
               </Link>
-            </div>
+            </div> */}
             <div
               className={twMerge(
                 "kg-card kg-product-card",
@@ -283,7 +276,7 @@ export const BaseSidebar = ({
                 <div className="kg-product-card-description"></div>
               </Link>
             </div>
-            <div
+            {/* <div
               className={twMerge(
                 "kg-card kg-product-card",
                 menu === "Full-Stack" && "active"
@@ -305,7 +298,7 @@ export const BaseSidebar = ({
 
                 <div className="kg-product-card-description"></div>
               </Link>
-            </div>
+            </div> */}
             {/*
             <h3 id="resources">Resources</h3>
             <div className={twMerge(

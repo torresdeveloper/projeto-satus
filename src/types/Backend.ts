@@ -1,30 +1,30 @@
 import { SecondarySidebarItem } from "@/components/base/base.types";
 
-export enum FrontendEnum {
-  IntroducaoAoFrontend = "/frontend/introducao-ao-frontend",
+export enum BackendEnum {
+  IntroducaoAoBackend = "/backend/introducao-ao-backend",
 }
 
-export function FrontendTitle() {
+export function BackendTitle() {
   return "Front-end";
 }
 
-export function FrontendItems(current?: FrontendEnum): SecondarySidebarItem[] {
+export function BackendItems(current?: BackendEnum): SecondarySidebarItem[] {
   const items: SecondarySidebarItem[] = [
     {
-      title: "Introdução ao Frontend",
-      href: FrontendEnum.IntroducaoAoFrontend.toString(),
+      title: "Introdução ao Backend",
+      href: BackendEnum.IntroducaoAoBackend.toString(),
       date: "2024-03-28",
       // category: "Ranking",
     },
     // {
     //   title:
     //     "Como as pessoas estão ganhando dinheiro com Inteligência Artificial?",
-    //   href: FrontendEnum.GanharDinheiroComIA.toString(),
+    //   href: BackendEnum.GanharDinheiroComIA.toString(),
     //   date: "17 Mar 2024",
     // },
     // {
     //   title: "Como eu começo minha carreira com Inteligência Artificial?",
-    //   href: FrontendEnum.InicioDeCarreira.toString(),
+    //   href: BackendEnum.InicioDeCarreira.toString(),
     //   date: "17 Mar 2024",
     // },
   ];
