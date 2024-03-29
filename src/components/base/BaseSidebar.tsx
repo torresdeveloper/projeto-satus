@@ -209,7 +209,7 @@ export const BaseSidebar = ({
               )}
             >
               <Link
-                href="inteligencia-artificial"
+                href="/inteligencia-artificial"
                 className="kg-product-card-container"
               >
                 <img
@@ -243,7 +243,7 @@ export const BaseSidebar = ({
                 menu === "Front-end" && "active"
               )}
             >
-              <div className="kg-product-card-container">
+              <Link href="/frontend" className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2024/03/Frame-3--1-.svg"
                   width="20"
@@ -258,14 +258,7 @@ export const BaseSidebar = ({
                 </div>
 
                 <div className="kg-product-card-description"></div>
-
-                <Link
-                  href="https://www.jeffsu.org/Front-end/"
-                  className="kg-product-card-button kg-product-card-btn-accent"
-                >
-                  <span>Front-end</span>
-                </Link>
-              </div>
+              </Link>
             </div>
             <div
               className={twMerge(
@@ -273,7 +266,7 @@ export const BaseSidebar = ({
                 menu === "Back-end" && "active"
               )}
             >
-              <div className="kg-product-card-container">
+              <Link href="/backend" className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2023/08/Frame-5.svg"
                   width="20"
@@ -288,14 +281,7 @@ export const BaseSidebar = ({
                 </div>
 
                 <div className="kg-product-card-description"></div>
-
-                <Link
-                  href="https://www.jeffsu.org/Back-end/"
-                  className="kg-product-card-button kg-product-card-btn-accent"
-                >
-                  <span>Back-end</span>
-                </Link>
-              </div>
+              </Link>
             </div>
             <div
               className={twMerge(
@@ -303,7 +289,7 @@ export const BaseSidebar = ({
                 menu === "Full-Stack" && "active"
               )}
             >
-              <div className="kg-product-card-container">
+              <Link href="/fullstack" className="kg-product-card-container">
                 <img
                   src="https://www.jeffsu.org/content/images/2023/08/Frame-4.svg"
                   width="18"
@@ -318,14 +304,7 @@ export const BaseSidebar = ({
                 </div>
 
                 <div className="kg-product-card-description"></div>
-
-                <Link
-                  href="https://www.jeffsu.org/Full-Stack/"
-                  className="kg-product-card-button kg-product-card-btn-accent"
-                >
-                  <span>Full-Stack</span>
-                </Link>
-              </div>
+              </Link>
             </div>
             {/*
             <h3 id="resources">Resources</h3>

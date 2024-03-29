@@ -16,7 +16,7 @@ export default function InteligenciaArtificial() {
       secondaryTitle={InteligenciaArtificialTitle()}
     >
       <PageTitle
-        title="Lista com as ferramentas de IA Grátis mais interessantes | Ranking 2024-03"
+        title="Lista com as ferramentas de IA Grátis mais interessantes"
         headline={
           <>
             <time dateTime="2024-03-28">28 Mar 2024</time>
