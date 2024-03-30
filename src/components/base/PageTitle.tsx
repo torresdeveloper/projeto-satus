@@ -1,9 +1,13 @@
+import { twMerge } from "tailwind-merge";
+
 export const PageTitle = ({
   title,
   headline,
+  className,
 }: {
   title: string;
   headline?: JSX.Element;
+  className?: string;
 }) => {
   return (
     <>
@@ -12,7 +16,12 @@ export const PageTitle = ({
           {headline}
         </div>
       )}
-      <h1 className="title text-3xl lg:text-4xl font-bold text-gray-1 dark:text-gray-15 mb-6 duration-300">
+      <h1
+        className={twMerge(
+          "title text-3xl lg:text-4xl font-bold text-gray-1 dark:text-gray-15 mb-6 duration-300",
+          className
+        )}
+      >
         {title}
       </h1>
     </>

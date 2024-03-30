@@ -3,6 +3,9 @@
 
 import { onNextClick } from "@/helpers/onNextClick";
 import { SecondarySidebarItem } from "./base.types";
+import { useComponentDidMount } from "@/hooks/useComponentDidMount";
+import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 
 const openedClassName = "mobile-secondary-sidebar-active";
 
@@ -13,6 +16,16 @@ export const MobileSecondarySidebar = ({
   items: SecondarySidebarItem[];
   title?: string;
 }) => {
+  const [currentItemIndex, setCurrentItemIndex] = useState(-1);
+
+  useComponentDidMount(() => {
+    const uri = window.location.pathname;
+    const index = items.findIndex((item) => item.href === uri);
+    setCurrentItemIndex(index);
+  });
+
+  const currentItemTitle = items[currentItemIndex]?.title || title;
+
   const onClickOpen = (e: any) => {
     e.stopPropagation();
     e.preventDefault();
@@ -41,7 +54,7 @@ export const MobileSecondarySidebar = ({
         onClick={onClickOpen}
         className="trigger-mobile-secondary-sidebar h-12 text-sm flex items-center justify-between px-4 border border-orange-2 dark:border-gray-10 rounded bg-orange-4 dark:bg-gray-14"
       >
-        {title}
+        {currentItemTitle}
         <svg
           width="16"
           height="16"
@@ -138,7 +151,10 @@ export const MobileSecondarySidebar = ({
                 return (
                   <article
                     key={index}
-                    className="post tag-hash-newsletter tag-gemini no-image post-access-public  p-2 relative rounded duration-300 hover:bg-orange-3 hover:bg-opacity-40 dark:hover:bg-gray-11 dark:hover:bg-opacity-40"
+                    className={twMerge(
+                      "post tag-hash-newsletter tag-gemini no-image post-access-public  p-2 relative rounded duration-300 hover:bg-orange-3 hover:bg-opacity-40 dark:hover:bg-gray-11 dark:hover:bg-opacity-40",
+                      currentItemIndex === index && "active"
+                    )}
                   >
                     <h3 className="text-sm leading-lh-2 mb-1 text-gray-1 dark:text-gray-15 duration-300">
                       {item.title}

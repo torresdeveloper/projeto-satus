@@ -21,17 +21,6 @@ export function EquipeItems(current?: EquipeEnum): SecondarySidebarItem[] {
       href: EquipeEnum.MatheusTorres.toString(),
       // category: "Equipe",
     },
-    // {
-    //   title:
-    //     "Como as pessoas estão ganhando dinheiro com Inteligência Artificial?",
-    //   href: EquipeEnum.GanharDinheiroComIA.toString(),
-    //   date: "17 Mar 2024",
-    // },
-    // {
-    //   title: "Como eu começo minha carreira com Inteligência Artificial?",
-    //   href: EquipeEnum.InicioDeCarreira.toString(),
-    //   date: "17 Mar 2024",
-    // },
   ];
   const activeItem = items.find((item) => item.href === current);
   if (activeItem) {

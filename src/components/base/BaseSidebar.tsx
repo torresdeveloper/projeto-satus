@@ -299,6 +299,29 @@ export const BaseSidebar = ({
                 <div className="kg-product-card-description"></div>
               </Link>
             </div> */}
+            <div
+              className={twMerge(
+                "kg-card kg-product-card",
+                menu === "Quizzes" && "active"
+              )}
+            >
+              <Link href="/quizzes" className="kg-product-card-container">
+                <img
+                  src="https://www.jeffsu.org/content/images/2023/08/Frame-6.svg"
+                  width="20"
+                  height="16"
+                  className="kg-product-card-image"
+                  loading="lazy"
+                />
+                <div className="kg-product-card-title-container">
+                  <h4 className="kg-product-card-title">
+                    <span style={{ whiteSpace: "pre-wrap" }}>Quizzes</span>
+                  </h4>
+                </div>
+
+                <div className="kg-product-card-description"></div>
+              </Link>
+            </div>
             {/*
             <h3 id="resources">Resources</h3>
             <div className={twMerge(
