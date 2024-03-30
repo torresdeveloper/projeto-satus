@@ -1,11 +1,15 @@
 import { BasePage } from "@/components/base/BasePage";
 import { PageTitle } from "@/components/base/PageTitle";
+import { useServerPageProps } from "@/hooks/useServerPageProps";
 import { BackendItems, BackendTitle } from "@/types/Backend";
 
-export default function Backend() {
+export default async function Backend() {
+  const pageProps = await useServerPageProps();
+
   return (
     <BasePage
       menu="Back-end"
+      pageProps={pageProps}
       secondaryItems={BackendItems()}
       secondaryTitle={BackendTitle()}
     >

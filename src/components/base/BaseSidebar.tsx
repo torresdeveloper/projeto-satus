@@ -1,20 +1,26 @@
+"use client";
+
 import { onNextClick } from "@/lib/helpers/onNextClick";
 import { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { LoginPreview } from "./LoginPreview";
+import { PremiumSidebarItems } from "./PremiumSidebarItems";
+import { PageProps } from "@/hooks/useServerPageProps";
 
 export const BaseSidebar = ({
   menu,
   mobileOpened,
   setMobileOpened,
   setTheme,
+  pageProps,
 }: {
   menu: string;
   mobileOpened: boolean;
   setMobileOpened: (value: boolean) => void;
   setTheme: (theme: "light" | "dark" | "auto") => void;
+  pageProps: PageProps;
 }) => {
   const setThemeWrapper = (theme: "light" | "dark" | "auto") => (e: any) => {
     e.preventDefault();
@@ -346,6 +352,8 @@ export const BaseSidebar = ({
                 <div className="kg-product-card-description"></div>
               </Link>
             </div>
+
+            <PremiumSidebarItems menu={menu} isPremium={pageProps.isPremium} />
 
             {/*
             <h3 id="resources">Resources</h3>

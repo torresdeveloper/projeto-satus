@@ -13,7 +13,7 @@ export const useCurrentUserClient = (): CurrentUser | undefined => {
   const [user, setUser] = useState<CurrentUser | undefined>(undefined);
 
   useComponentDidMount(async () => {
-    // const supabaseUser = await supabase.auth.getUser();
+    const _supabaseUser = await supabase.auth.getUser();
     const supabaseSession = await supabase.auth.getSession();
     const supabaseUser = supabaseSession.data.session?.user;
     const currentUser = supabaseUserToCurrentUser(supabaseUser);

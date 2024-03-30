@@ -30,8 +30,6 @@ export const supabaseUserToCurrentUser = (
       displayName: userUser.email!.split("@").shift() || "Desconhecido",
     };
 
-    console.log("currentUser: ", userUser);
-
     return currentUser;
   }
 

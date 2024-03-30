@@ -1,11 +1,14 @@
 import { BasePage } from "@/components/base/BasePage";
 import { PageTitle } from "@/components/base/PageTitle";
+import { useServerPageProps } from "@/hooks/useServerPageProps";
 import { CarreiraItems, CarreiraTitle } from "@/types/Carreira";
 
-export default function Carreira() {
+export default async function Carreira() {
+  const pageProps = await useServerPageProps();
   return (
     <BasePage
       menu="Carreira"
+      pageProps={pageProps}
       secondaryItems={CarreiraItems()}
       secondaryTitle={CarreiraTitle()}
     >

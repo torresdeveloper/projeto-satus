@@ -1,11 +1,15 @@
 import { BasePage } from "@/components/base/BasePage";
 import { PageTitle } from "@/components/base/PageTitle";
+import { useServerPageProps } from "@/hooks/useServerPageProps";
 import { QuizzesItems, QuizzesTitle } from "@/types/Quizzes";
 
-export default function Quizzes() {
+export default async function Quizzes() {
+  const pageProps = await useServerPageProps();
+
   return (
     <BasePage
       menu="Quizzes"
+      pageProps={pageProps}
       secondaryItems={QuizzesItems()}
       secondaryTitle={QuizzesTitle()}
     >

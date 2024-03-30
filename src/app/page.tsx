@@ -1,11 +1,12 @@
 import { BasePage } from "@/components/base/BasePage";
-import { ExampleBody } from "@/components/base/ExampleBody";
-import Image from "next/image";
+import { useServerPageProps } from "@/hooks/useServerPageProps";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const pageProps = await useServerPageProps();
+
   return (
-    <BasePage menu="Início" fullWidth>
+    <BasePage menu="Início" pageProps={pageProps} fullWidth>
       <main className="flex flex-col items-center justify-center pt-8 lg:p-16 lg:pt-32">
         <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-[#F9E6BB] after:via-[#F9E6BB] after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-[#e3ae5d] before:dark:opacity-10 after:dark:from-[#bc6407] after:dark:via-[#bc6407] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
           <h1 className="text-3xl lg:text-5xl font-bold relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:text-white">

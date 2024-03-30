@@ -1,10 +1,11 @@
+"use server";
 import { twMerge } from "tailwind-merge";
 import { AppearingDiv } from "./AppearingDiv";
 import { HeaderAndSidebar } from "./HeaderAndSidebar";
 import { MobileSecondarySidebar } from "./MobileSecondarySidebar";
 import { SecondarySidebar } from "./SecondarySidebar";
 import type { SecondarySidebarItem } from "./base.types";
-import { motion } from "framer-motion";
+import { PageProps } from "@/hooks/useServerPageProps";
 
 export const BasePage = ({
   children,
@@ -12,12 +13,14 @@ export const BasePage = ({
   secondaryItems = [],
   secondaryTitle,
   fullWidth = false,
+  pageProps,
 }: {
   children: JSX.Element | JSX.Element[];
   menu: string;
   secondaryItems?: SecondarySidebarItem[];
   secondaryTitle?: string;
   fullWidth?: boolean;
+  pageProps: PageProps;
 }) => {
   const showSecondaryItems = secondaryItems.length > 0;
 
@@ -35,7 +38,7 @@ export const BasePage = ({
           rel="stylesheet"
         />
       </>
-      <HeaderAndSidebar menu={menu} />
+      <HeaderAndSidebar menu={menu} pageProps={pageProps} />
       <div className="fixed top-0 left-0 right-0 bottom-0 z-[-1] after:absolute after:top-[-70px] after:left-[-20rem] after:-z-20 after:h-[75vh] after:w-full sm:after:w-full after:bg-gradient-radial after:from-[#FBF0D7] after:via-[#FBF0D7] after:opacity-30 after:blur-2xl after:content-[''] after:dark:from-[#6f3401] after:dark:via-[#bc6407] after:dark:opacity-10"></div>
       {showSecondaryItems && (
         <SecondarySidebar items={secondaryItems} title={secondaryTitle} />

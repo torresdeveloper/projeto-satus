@@ -6,7 +6,7 @@ export const ItemPreviewRow = ({ title, imageSrc, children }: any) => {
       </div>
       <div className="flex-1">
         <h4 className="!mt-0">{title}</h4>
-        <p>{children}</p>
+        <div>{children}</div>
         <div className="clear-both"></div>
       </div>
     </div>

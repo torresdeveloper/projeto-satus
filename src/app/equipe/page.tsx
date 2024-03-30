@@ -1,13 +1,17 @@
 import { BasePage } from "@/components/base/BasePage";
 import { PageTitle } from "@/components/base/PageTitle";
 import { ItemPreviewRow } from "@/components/items/ItemPreviewRow";
+import { useServerPageProps } from "@/hooks/useServerPageProps";
 import { EquipeItems, EquipeTitle } from "@/types/Equipe";
 import Link from "next/link";
 
-export default function Equipe() {
+export default async function Equipe() {
+  const pageProps = await useServerPageProps();
+
   return (
     <BasePage
       menu="Nossa Equipe"
+      pageProps={pageProps}
       secondaryItems={EquipeItems()}
       secondaryTitle={EquipeTitle()}
     >

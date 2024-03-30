@@ -1,12 +1,17 @@
+"use server";
+
 import { BasePage } from "@/components/base/BasePage";
 import { PageTitle } from "@/components/base/PageTitle";
+import { useServerPageProps } from "@/hooks/useServerPageProps";
 import { BackendEnum, BackendItems, BackendTitle } from "@/types/Backend";
-import Image from "next/image";
 
-export default function Backend() {
+export default async function Backend() {
+  const pageProps = await useServerPageProps();
+
   return (
     <BasePage
       menu="Back-end"
+      pageProps={pageProps}
       secondaryItems={BackendItems(BackendEnum.IntroducaoAoBackend)}
       secondaryTitle={BackendTitle()}
     >

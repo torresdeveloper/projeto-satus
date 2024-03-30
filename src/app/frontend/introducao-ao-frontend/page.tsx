@@ -1,12 +1,16 @@
 import { BasePage } from "@/components/base/BasePage";
 import { PageTitle } from "@/components/base/PageTitle";
+import { useServerPageProps } from "@/hooks/useServerPageProps";
 import { FrontendEnum, FrontendItems, FrontendTitle } from "@/types/Frontend";
 import Image from "next/image";
 
-export default function Frontend() {
+export default async function Frontend() {
+  const pageProps = await useServerPageProps();
+
   return (
     <BasePage
       menu="Front-end"
+      pageProps={pageProps}
       secondaryItems={FrontendItems(FrontendEnum.IntroducaoAoFrontend)}
       secondaryTitle={FrontendTitle()}
     >

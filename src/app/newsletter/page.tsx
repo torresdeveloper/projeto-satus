@@ -1,10 +1,13 @@
 import { BasePage } from "@/components/base/BasePage";
 import { PageTitle } from "@/components/base/PageTitle";
 import { NewsletterForm } from "./NewsletterForm";
+import { useServerPageProps } from "@/hooks/useServerPageProps";
 
-export default function Newsletter() {
+export default async function Newsletter() {
+  const pageProps = await useServerPageProps();
+
   return (
-    <BasePage menu="Newsletter">
+    <BasePage menu="Newsletter" pageProps={pageProps}>
       <PageTitle title="Dicas para conseguir emprego na área de Tecnologia" />
 
       <div className="prose">

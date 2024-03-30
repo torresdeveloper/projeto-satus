@@ -3,8 +3,15 @@ import { useState } from "react";
 import { BaseMobileHeader } from "./BaseMobileHeader";
 import { BaseSidebar } from "./BaseSidebar";
 import { useComponentDidMount } from "@/hooks/useComponentDidMount";
+import { PageProps } from "@/hooks/useServerPageProps";
 
-export const HeaderAndSidebar = ({ menu }: { menu: string }) => {
+export const HeaderAndSidebar = ({
+  menu,
+  pageProps,
+}: {
+  menu: string;
+  pageProps: PageProps;
+}) => {
   const [mobileOpened, setMobileOpened] = useState(false);
 
   useComponentDidMount(() => {
@@ -34,6 +41,7 @@ export const HeaderAndSidebar = ({ menu }: { menu: string }) => {
         menu={menu}
         mobileOpened={mobileOpened}
         setMobileOpened={setMobileOpened}
+        pageProps={pageProps}
         setTheme={(theme: "light" | "dark" | "auto") => {
           document.documentElement.classList.remove("auto");
           document.documentElement.classList.remove("light");
