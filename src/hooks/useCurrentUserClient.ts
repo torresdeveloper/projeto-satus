@@ -9,11 +9,11 @@ import {
 } from "@/lib/supabase/currentUser";
 
 export const useCurrentUserClient = (): CurrentUser | undefined => {
-  const supabase = createSupabaseWebClient();
   const [user, setUser] = useState<CurrentUser | undefined>(undefined);
 
   useComponentDidMount(async () => {
-    const _supabaseUser = await supabase.auth.getUser();
+    const supabase = createSupabaseWebClient();
+    // const _supabaseUser = await supabase.auth.getUser();
     const supabaseSession = await supabase.auth.getSession();
     const supabaseUser = supabaseSession.data.session?.user;
     const currentUser = supabaseUserToCurrentUser(supabaseUser);
