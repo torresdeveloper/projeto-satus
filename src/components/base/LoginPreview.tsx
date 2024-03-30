@@ -15,14 +15,14 @@ export const LoginPreview = () => {
   } else {
     content = (
       <div className="prose text-sm">
-        <p>Olá, {currentUser.displayName}!</p>
+        <p className="!mb-0 sm:!mb-2">Olá, {currentUser.displayName}!</p>
         <Link href="/auth/logout">Logout</Link>
       </div>
     );
   }
 
   return (
-    <div className="absolute bottom-20 left-6 right-6 text-center">
+    <div className="mb-4 sm:absolute sm:bottom-20 sm:left-6 sm:right-6 text-center">
       {content}
     </div>
   );

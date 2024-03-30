@@ -111,7 +111,7 @@ export const BaseSidebar = ({
             </div>
           </div>
           <SearchForInput />
-          <nav className="mt-4 mb-12">
+          <nav className="mt-4 mb-4">
             <div
               className={twMerge(
                 "kg-card kg-product-card",

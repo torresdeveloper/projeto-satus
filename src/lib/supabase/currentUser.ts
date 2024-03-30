@@ -1,4 +1,4 @@
-import { UserResponse } from "@supabase/supabase-js";
+import { User, UserResponse } from "@supabase/supabase-js";
 
 export interface CurrentUser {
   id: string;
@@ -7,27 +7,33 @@ export interface CurrentUser {
 }
 
 export const supabaseUserToCurrentUser = (
-  user: UserResponse
+  user: UserResponse | User | undefined
 ): CurrentUser | undefined => {
-  if (!user || user.error?.message) {
-    // const errorMessage = user?.error?.message || "No user found";
-    // throw new Error(errorMessage);
-    return undefined;
+  let userResponse: UserResponse | undefined;
+  let userUser: User | undefined;
+
+  if (!user) return undefined;
+
+  if ("data" in user) {
+    userResponse = user as UserResponse;
+    userUser = userResponse.data.user || undefined;
+  } else {
+    userResponse = undefined;
+    userUser = user as User;
   }
 
-  if (!user.data.user?.id) {
-    // throw new Error("No user ID found");
-    return undefined;
+  if (userUser?.id) {
+    const currentUser: CurrentUser = {
+      id: userUser.id,
+      email: userUser.email!,
+      // displayName: userUser.user_metadata.full_name,
+      displayName: userUser.email!.split("@").shift() || "Desconhecido",
+    };
+
+    console.log("currentUser: ", userUser);
+
+    return currentUser;
   }
 
-  const currentUser: CurrentUser = {
-    id: user.data.user.id,
-    email: user.data.user.email!,
-    // displayName: user.data.user.user_metadata.full_name,
-    displayName: user.data.user.email!.split("@").shift() || "Desconhecido",
-  };
-
-  console.log("currentUser: ", user.data.user);
-
-  return currentUser;
+  return undefined;
 };

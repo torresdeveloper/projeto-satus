@@ -13,9 +13,18 @@ export const useCurrentUserClient = (): CurrentUser | undefined => {
   const [user, setUser] = useState<CurrentUser | undefined>(undefined);
 
   useComponentDidMount(async () => {
-    const user = await supabase.auth.getUser();
-    const currentUser = supabaseUserToCurrentUser(user);
+    const supabaseUser = await supabase.auth.getUser();
+    const currentUser = supabaseUserToCurrentUser(supabaseUser);
     setUser(currentUser);
+
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN" && session?.user && !user) {
+        // setUser(supabaseUserToCurrentUser(session.user));
+      } else if (event === "SIGNED_OUT" && user) {
+        setUser(undefined);
+        window.location.reload();
+      }
+    });
   });
 
   return user;
