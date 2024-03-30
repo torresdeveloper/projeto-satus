@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { LoginPreview } from "./LoginPreview";
 
 export const BaseSidebar = ({
   menu,
@@ -383,6 +384,7 @@ export const BaseSidebar = ({
               </div>
             </div>*/}
           </nav>
+          <LoginPreview />
           <div className="color-mode">
             <a href="#" onClick={setThemeWrapper("light")} data-mode="light">
               Light
