@@ -5,10 +5,12 @@ export const PageTitle = ({
   headline,
   className,
 }: {
-  title: string;
+  title?: string;
   headline?: JSX.Element;
   className?: string;
 }) => {
+  if (!title) return null;
+
   return (
     <>
       {headline && (

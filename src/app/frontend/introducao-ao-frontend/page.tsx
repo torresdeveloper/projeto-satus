@@ -87,6 +87,15 @@ export default function Frontend() {
           , isso é completamente opcional mas pode ajudar caso você não tenha um
           computador bom ou não gosta muito de ficar só na teoria.
         </p>
+        <h2>React:</h2>
+        <h3 className="!mt-0">React é importante!</h3>
+        <p>
+          Se você está buscando emprego de Front-end e não tem 2 ou 3 anos de
+          tempo livre para estudar intensivamente, saiba que a maioria das
+          empresas estão contratando desenvolvedores React, então aprenda React
+          e vai ficar mais fácil conseguir seu primeiro emprego de Front-end
+          React.
+        </p>
         <h2>Dicas para o Sucesso:</h2>
         <p>
           Pratique com frequência: Crie pequenos projetos para aplicar o que

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { onNextClick } from "@/helpers/onNextClick";
+import { onNextClick } from "@/lib/helpers/onNextClick";
 import { SecondarySidebarItem } from "./base.types";
 import { useComponentDidMount } from "@/hooks/useComponentDidMount";
 import { useState } from "react";
