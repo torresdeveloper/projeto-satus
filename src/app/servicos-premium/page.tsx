@@ -22,18 +22,21 @@ export default async function ServicosPremium() {
         <div className="md:mt-20">
           {servicos.map((servico) => {
             return (
-              <ItemPreviewRow
-                key={servico.id}
-                title={servico.titulo}
-                imageSrc={servico.imagemSrc}
-              >
-                <span className="text-sm font-normal">{servico.descricao}</span>
-                <br />
-                <ServicoPremiumStatus servico={servico} />
-                <Link href={`/servicos-premium/${servico.id}`}>
-                  Ver detalhes do serviço
-                </Link>
-              </ItemPreviewRow>
+              <div key={servico.id} className="mb-4 sm:mb-10">
+                <ItemPreviewRow
+                  title={servico.titulo}
+                  imageSrc={servico.imagemSrc}
+                >
+                  <span className="text-sm font-normal">
+                    {servico.descricao}
+                  </span>
+                  <br />
+                  <ServicoPremiumStatus servico={servico} />
+                  <Link href={`/servicos-premium/${servico.id}`}>
+                    Ver detalhes do serviço
+                  </Link>
+                </ItemPreviewRow>
+              </div>
             );
           })}
         </div>

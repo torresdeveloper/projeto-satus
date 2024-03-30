@@ -1,5 +1,11 @@
+"use server";
+
 // https://supabase.com/docs/guides/auth/server-side/nextjs
-import { createServerClient, type CookieOptions } from "@supabase/ssr";
+import {
+  createServerClient,
+  type CookieOptions,
+  createBrowserClient,
+} from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function updateSession(request: NextRequest) {

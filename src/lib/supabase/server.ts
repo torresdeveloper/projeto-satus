@@ -1,10 +1,12 @@
+"use server";
 // https://supabase.com/docs/guides/auth/server-side/nextjs
 
 import { DbServicoPremium } from "@/types/SupabaseDatabase";
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
-export function createSupabaseServerClient() {
+export async function createSupabaseServerClient() {
+  "use server";
   const cookieStore = cookies();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -38,7 +40,7 @@ export function createSupabaseServerClient() {
 }
 
 export async function isUsuarioPremium() {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const supabaseUser = await supabase.auth.getUser();
   const userId = supabaseUser?.data.user?.id;
   if (!userId) {
@@ -56,7 +58,8 @@ export async function isUsuarioPremium() {
 }
 
 export async function listarServicosPremium(): Promise<DbServicoPremium[]> {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
+  const supabaseUser = await supabase.auth.getUser();
   const servicos = await supabase
     .from("servicosPremium")
     .select("*")
@@ -68,7 +71,8 @@ export async function listarServicosPremium(): Promise<DbServicoPremium[]> {
 export async function detalhesServicoPremium(
   id: string
 ): Promise<DbServicoPremium> {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
+  const supabaseUser = await supabase.auth.getUser();
   const servico = await supabase
     .from("servicosPremium")
     .select("*")

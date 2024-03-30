@@ -1,14 +1,9 @@
 import { BasePage } from "@/components/base/BasePage";
-import { PageTitle } from "@/components/base/PageTitle";
 import { ItemPreviewRow } from "@/components/items/ItemPreviewRow";
 import { useServerPageProps } from "@/hooks/useServerPageProps";
-import {
-  detalhesServicoPremium,
-  listarServicosPremium,
-} from "@/lib/supabase/server";
-import { DbServicoPremiumStatus } from "@/types/SupabaseDatabase";
-import { twMerge } from "tailwind-merge";
+import { detalhesServicoPremium } from "@/lib/supabase/server";
 import { ServicoPremiumStatus } from "../ServicoPremiumStatus";
+import { MdxDoServicoPremium } from "./actions";
 
 export default async function ServicosPremium({
   params,
@@ -18,6 +13,7 @@ export default async function ServicosPremium({
   const pageProps = await useServerPageProps();
   const servicoId = params.id;
   const servico = await detalhesServicoPremium(servicoId);
+  const DetalhesDoServico = await MdxDoServicoPremium(servicoId);
 
   return (
     <BasePage menu="Serviços Premium" pageProps={pageProps}>
@@ -37,6 +33,9 @@ export default async function ServicosPremium({
           R$ {servico.valorServico}
         </p>
         <ServicoPremiumStatus servico={servico} />
+      </div>
+      <div className="prose mt-8">
+        {DetalhesDoServico && <DetalhesDoServico />}
       </div>
     </BasePage>
   );

@@ -416,7 +416,7 @@ export const BaseSidebar = ({
               </div>
             </div>*/}
           </nav>
-          <LoginPreview />
+          <LoginPreview currentUser={pageProps.user} />
           <div className="color-mode">
             <a href="#" onClick={setThemeWrapper("light")} data-mode="light">
               Light

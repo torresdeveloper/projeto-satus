@@ -9,8 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.1.4",
     "@supabase/ssr": "^0.1.0",
     "@supabase/supabase-js": "^2.41.1",
+    "@types/mdx": "^2.0.12",
     "framer-motion": "^11.0.22",
     "next": "14.1.4",
     "react": "^18",

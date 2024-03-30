@@ -1,22 +1,24 @@
-import { useCurrentUserClient } from "@/hooks/useCurrentUserClient";
+import { CurrentUser } from "@/lib/supabase/currentUser";
 import Link from "next/link";
 
-export const LoginPreview = () => {
-  const currentUser = useCurrentUserClient();
-
+export const LoginPreview = ({
+  currentUser,
+}: {
+  currentUser: CurrentUser | undefined;
+}) => {
   let content;
 
   if (!currentUser) {
     content = (
       <div className="prose text-sm">
-        <Link href="/auth/login">Login</Link>
+        <Link href="/auth/login">Entrar na minha conta</Link>
       </div>
     );
   } else {
     content = (
       <div className="prose text-sm">
         <p className="!mb-0 sm:!mb-2">Olá, {currentUser.displayName}!</p>
-        <Link href="/auth/logout">Logout</Link>
+        <Link href="/auth/logout">Sair</Link>
       </div>
     );
   }
