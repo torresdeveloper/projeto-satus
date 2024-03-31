@@ -229,6 +229,31 @@ export default async function InteligenciaArtificial() {
             Abrir Aiva AI
           </a>
         </ItemPreviewRow>
+
+        <h2>Outras (não testadas)</h2>
+
+        <h3 className="lg:!mt-0">
+          Opções interessantes que não se encaixam nas categorias acima.
+        </h3>
+
+        <ul>
+          <li>
+            <a
+              href="https://gamma.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Gamma
+            </a>
+            : Crie inspirações de frontend, crie sites simples completos
+            hospedados por eles e outras coisas como apresentação de slides com
+            uma frase.
+          </li>
+        </ul>
+        {/**
+         * Opções muito boas, só que pagas:
+         * - https://kaiber.ai/ - para gerar animações de músicas
+         **/}
       </div>
     </BasePage>
   );
